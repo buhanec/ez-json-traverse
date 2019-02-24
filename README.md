@@ -1,4 +1,5 @@
-# ez-json-traverse [![Build Status](https://travis-ci.org/buhanec/ez-json-traverse.svg?branch=master)](https://travis-ci.org/buhanec/ez-json-traverse)
+# ez-json-traverse [![Build Status](https://img.shields.io/travis/buhanec/ez-json-traverse/master.svg?style=flat-square&label=Travis%20Build)](https://travis-ci.org/buhanec/ez-json-traverse) [![Supported Python Version](https://img.shields.io/pypi/pyversions/ez-json-traverse.svg?style=flat-square)](https://pypi.org/project/ez-json-traverse/) [![License](https://img.shields.io/pypi/l/ez-json-traverse.svg?style=flat-square)](https://pypi.org/project/ez-json-traverse/)
+
 For easier traversing and exploration of JSON structures.
 
 Provides a traversable sequence `EZJL`, traversable mapping `EZJD` and convenience methods like `as_traversable`.
