@@ -1,12 +1,18 @@
 from setuptools import setup, find_packages
 
 
+with open('README.md') as f:
+    readme = f.read()
+
 setup(
     name='ez-json-traverse', 
     version='0.1', 
     packages=find_packages(),
     author='buhanec',
     license='MIT',
+    long_description=readme,
+    long_description_content_type='text/markdown',
+    url='https://github.com/buhanec/ez-json-traverse',
     classifiers=[
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.6",
