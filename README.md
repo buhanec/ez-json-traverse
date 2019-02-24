@@ -1,4 +1,4 @@
-# ez-json-traverse
+# ez-json-traverse [![Build Status](https://travis-ci.org/buhanec/ez-json-traverse.svg?branch=master)](https://travis-ci.org/buhanec/ez-json-traverse)
 For easier traversing and exploration of JSON structures.
 
 Provides a traversable sequence `EZJL`, traversable mapping `EZJD` and convenience methods like `as_traversable`.
