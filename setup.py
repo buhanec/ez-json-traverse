@@ -10,6 +10,7 @@ setup(
     packages=find_packages(),
     author='buhanec',
     license='MIT',
+    description='Easier traversing and exploration of JSON structures',
     long_description=readme,
     long_description_content_type='text/markdown',
     url='https://github.com/buhanec/ez-json-traverse',
