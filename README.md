@@ -57,18 +57,10 @@ t['1:-1^.1.0']  # EZJL of [2]
 ## Other conveniences
 
 ```python
-l = [[0, [1, 2]], [1, [2, 3]], [2, [3, 4]]]
+t = as_traversable(..., sep='.', map_char='^')  # EZJL
 
-t = as_traversable(l, sep='.', map_char='^')  # EZJL
-
-# Normal key access
-t[0]  # EZJL of [0, [1, 2]]
-t['0']  # EZJL of [0, [1, 2]]
-
-# Path key access
-t['0.1.0']  # 1
-
-# Mapping across values
-t[':^.1.0']  # EZJL of [1, 2, 3]
-t['1:-1^.1.0']  # EZJL of [2] 
+t.parent  # Parent container
+t.root  # Root container
+t.path  # Path from root container to current traversable
+t.key  # Final key or index of current traversable
 ```
