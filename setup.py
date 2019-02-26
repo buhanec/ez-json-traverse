@@ -6,7 +6,7 @@ with open('README.md') as f:
 
 setup(
     name='ez-json-traverse', 
-    version='0.1', 
+    version='0.2',
     packages=find_packages(),
     author='buhanec',
     license='MIT',
