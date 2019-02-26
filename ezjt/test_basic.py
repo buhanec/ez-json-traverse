@@ -152,5 +152,30 @@ class TestProperties(unittest.TestCase):
         self.assertEqual(self.list_[':^.1.0'].root, self.list_)
 
 
+class TestGet(unittest.TestCase):
+
+    dict_ = EZJD({
+        'a': {'name': 'Jane', 'age': {'unit': 'year', 'value': 12}},
+        'b': {'name': 'John', 'age': {'unit': 'year', 'value': 14}},
+        'c': {'name': 'Jill', 'age': {'unit': 'year', 'value': 10}}
+    })
+
+    list_ = EZJL([[0, [1, 2]], [1, [2, 3]], [2, [3, 4]]])
+
+    def test_dict_exists(self):
+        self.assertEqual(self.dict_.get('a.name'), 'Jane')
+
+    def test_dict_not_exists(self):
+        self.assertEqual(self.dict_.get('a.gender'), None)
+        self.assertEqual(self.dict_.get('a.gender', 'Unknown'), 'Unknown')
+
+    def test_list_exists(self):
+        self.assertEqual(self.list_.get('0.1.0'), 1)
+
+    def test_list_not_exists(self):
+        self.assertEqual(self.list_.get('0.1.2'), None)
+        self.assertEqual(self.list_.get('0.1.2', -1), -1)
+
+
 if __name__ == '__main__':
     unittest.main()

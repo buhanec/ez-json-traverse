@@ -197,6 +197,12 @@ class _EZBase:
                         map_char=self._map_char,
                         dict_key_key=self._dict_key_key)
 
+    def get(self, path, default: EZJsonValues = None) -> EZJsonValues:
+        try:
+            return self[path]
+        except (IndexError, KeyError):
+            return default
+
     def __len__(self) -> int:
         return len(self._underlying)
 
