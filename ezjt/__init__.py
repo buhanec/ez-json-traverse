@@ -1,5 +1,6 @@
 """Easier JSON navigation and exploration."""
 
+import ast
 from itertools import chain
 import json
 from pprint import pformat
@@ -242,7 +243,16 @@ def as_traversable(value: Union[str, Dict[str, Any], List[Any]], *,
                    map_char: str = DEFAULT_MAP,
                    dict_key_key: str = DEFAULT_MAP_KEY):
     if isinstance(value, str):
-        return as_traversable(json.loads(value),
+        try:
+            value = json.loads(value)
+        except ValueError:
+            try:
+                value = ast.literal_eval(value)
+            except ValueError:
+                raise ValueError('Could not interpret value as JSON or '
+                                 'Python AST')
+
+        return as_traversable(value,
                               parent=parent,
                               path=path,
                               sep=sep,

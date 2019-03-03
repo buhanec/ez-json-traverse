@@ -197,6 +197,11 @@ class TestString(unittest.TestCase):
         })
         self.assertEqual(as_traversable(string), traversable)
 
+    def test_ast(self):
+        string = "['a', 'b', {'c': 1}]"
+        traversable = as_traversable(['a', 'b', {'c': 1}])
+        self.assertEqual(as_traversable(string), traversable)
+
 
 if __name__ == '__main__':
     unittest.main()
