@@ -214,9 +214,9 @@ class _EZBase:
         blob = sep.join(pformat(self._underlying, compact=True).splitlines())
         return (f'{name}({blob},'
                 f'{sep}path={self._path!r},'
-                f'{sep}sep={self._sep},'
-                f'{sep}map_char={self._map_char},'
-                f'{sep}dict_key_key={self._dict_key_key})')
+                f'{sep}sep={self._sep!r},'
+                f'{sep}map_char={self._map_char!r},'
+                f'{sep}dict_key_key={self._dict_key_key!r})')
 
     def __eq__(self, other) -> bool:
         return (isinstance(other, type(self)) and
