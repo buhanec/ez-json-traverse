@@ -1,6 +1,7 @@
 """Easier JSON navigation and exploration."""
 
 from itertools import chain
+import json
 from pprint import pformat
 from typing import Any, Dict, Iterator, List, Mapping, Optional, Sequence, Union
 
@@ -234,13 +235,20 @@ class EZJD(_EZBase, Mapping[str, EZJsonValues]):
     pass
 
 
-def as_traversable(value: Union[Dict[str, Any], List[Any]], *,
+def as_traversable(value: Union[str, Dict[str, Any], List[Any]], *,
                    parent: Optional[Union[EZJL, EZJD]] = None,
                    path: str = '',
                    sep: str = DEFAULT_SEP,
                    map_char: str = DEFAULT_MAP,
                    dict_key_key: str = DEFAULT_MAP_KEY):
-    if isinstance(value, list):
+    if isinstance(value, str):
+        return as_traversable(json.loads(value),
+                              parent=parent,
+                              path=path,
+                              sep=sep,
+                              map_char=map_char,
+                              dict_key_key=dict_key_key)
+    elif isinstance(value, list):
         cls = EZJL
     elif isinstance(value, dict):
         cls = EZJD

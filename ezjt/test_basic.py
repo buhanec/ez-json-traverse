@@ -177,5 +177,26 @@ class TestGet(unittest.TestCase):
         self.assertEqual(self.list_.get('0.1.2', -1), -1)
 
 
+class TestString(unittest.TestCase):
+
+    def test_simple_list(self):
+        string = '[1, 2, 3]'
+        ezjl = EZJL([1, 2, 3])
+        self.assertEqual(as_traversable(string), ezjl)
+
+    def test_simple_dict(self):
+        string = '{"a": 1, "b": 2, "c": 3}'
+        ezjd = EZJD({'a': 1, 'b': 2, 'c': 3})
+        self.assertEqual(as_traversable(string), ezjd)
+
+    def test_funky(self):
+        string = '{"list": [1, 2, {}], "dict": {"a": ["b", 3]}}'
+        traversable = as_traversable({
+            'list': [1, 2, {}],
+            'dict': {'a': ['b', 3]}
+        })
+        self.assertEqual(as_traversable(string), traversable)
+
+
 if __name__ == '__main__':
     unittest.main()
